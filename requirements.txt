@@ -1,0 +1,9 @@
+python-jobspy
+pydantic
+httpx
+PyYAML
+python-dotenv
+beautifulsoup4
+pypdf
+pymongo
+cryptography

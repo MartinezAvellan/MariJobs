@@ -1,0 +1,73 @@
+app:
+  timezone: "Europe/Lisbon"
+  max_new_jobs_in_message: 50
+  db_cache_hours: 48
+  scrape_delay: 2
+  job_max_age_days: 10
+  cleanup_interval_hours: 24
+
+mongo:
+  uri_env: "MONGO_URI"
+  database: "marijobs"
+
+jobspy:
+  location: ""
+  remote_only: false
+  results_per_term: 30
+  sites:
+    - "linkedin"
+    - "indeed"
+    - "glassdoor"
+    - "google"
+  country_options:
+    - label: "Portugal"
+      value: "portugal"
+    - label: "Spain"
+      value: "spain"
+    - label: "France"
+      value: "france"
+    - label: "Germany"
+      value: "germany"
+    - label: "Netherlands"
+      value: "netherlands"
+    - label: "UK"
+      value: "uk"
+    - label: "Ireland"
+      value: "ireland"
+    - label: "Estonia"
+      value: "estonia"
+    - label: "Latvia"
+      value: "latvia"
+    - label: "Lithuania"
+      value: "lithuania"
+    - label: "Sweden"
+      value: "sweden"
+    - label: "Switzerland"
+      value: "switzerland"
+    - label: "Norway"
+      value: "norway"
+    - label: "USA"
+      value: "usa"
+    - label: "Brasil"
+      value: "brazil"
+    - label: "Worldwide"
+      value: "worldwide"
+
+active:
+  inactive_after_misses: 3
+
+telegram:
+  bot_token_env: "TELEGRAM_BOT_TOKEN"
+  chat_id_env: "TELEGRAM_CHAT_ID"
+
+openrouter:
+  enabled: true
+  api_key_env: "OPENROUTER_API_KEY"
+  base_url: "https://openrouter.ai/api/v1"
+  model: "openai/gpt-4.1-mini"
+  max_chars_per_job: 800
+  prompt_style: "short"
+  min_relevance_score: 3
+  whitelisted_phones:
+    - "+351900000000"
+    - "+351900000001"

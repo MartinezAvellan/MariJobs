@@ -1,0 +1,38 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: marijobs-mongo
+    restart: unless-stopped
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASS}
+    networks:
+      - internal
+
+  marijobs:
+    build: .
+    container_name: marijobs
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    env_file:
+      - .env
+    environment:
+      - MONGO_URI=mongodb://${MONGO_USER}:${MONGO_PASS}@mongo:27017/?authSource=admin
+    volumes:
+      - ./config:/app/config
+    networks:
+      - internal
+      - external
+
+volumes:
+  mongo_data:
+
+networks:
+  internal:
+    driver: bridge
+    internal: true
+  external:
+    driver: bridge
