@@ -6,6 +6,45 @@ Telegram bot that searches jobs across 6 sources, evaluates relevance with AI ag
 
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-support-yellow?style=flat&logo=buy-me-a-coffee)](https://buymeacoffee.com/martinezavellan)
 
+## Creating a Telegram Bot (BotFather)
+
+To run MariJobs, you need to create a Telegram Bot and obtain a bot token.
+
+### 1. Create the Bot
+
+1. Open Telegram and search for **@BotFather**
+2. Start the conversation and send:
+
+/start
+
+3. Create a new bot:
+
+/newbot
+
+4. Choose:
+   - A name for your bot (e.g., `YourBotName Bot`)
+   - A unique username ending with `bot` (e.g., `yourbotname_bot`)
+
+After completing the steps, BotFather will return a **Bot Token**, similar to:
+
+123456789:AAE_xxxxxxxxxxxxxxxxxxxxx
+
+Keep this token secure. Do not share it or commit it to your repository.
+
+---
+
+### 2. Configure the Token
+
+Add the token to your `.env` file:
+
+TELEGRAM_BOT_TOKEN=YOUR_BOT_TOKEN_HERE
+
+Make sure the `.env` file is included in your `.gitignore`.
+
+---
+
+Once configured, start the application and send `/start` to your bot in Telegram.
+
 ## Job Sources
 
 - **LinkedIn** (via JobSpy)
